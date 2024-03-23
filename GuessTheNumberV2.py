@@ -5,8 +5,6 @@ import os
 
 playAgain = "YES"
 
-
-
 while playAgain == "YES":
 
     os. system('clear')

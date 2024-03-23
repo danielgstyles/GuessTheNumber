@@ -8,7 +8,10 @@ def CheckGuesses(setNumber):
     guess = int(input("Player Two. Please enter your guess: "))
 
     while numberToGuess != guess:
-        print("\n It looks like you did not guess the number correctly. \n")
+        if numberToGuess < guess:
+            print("\nIt looks like your guess is too high. Tyr a lower number. \n")
+        else:
+            print("\nIt looks like your guess is too low. Tyr a higher number. \n")
         guess = int(input("Please enter your next guess: "))
 
     print("\n")
