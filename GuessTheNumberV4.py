@@ -34,9 +34,13 @@ def CheckGuesses(setNumber):
     print("\n")
     name = input("Please enter your name: ")
     print("\n")
+    saveFile = open("SaveFile.txt", "a")
+    saveFile.write(name +  " guessed " + str(guesses) + "\n")
+    #saveFile.write(str(guesses))
+    saveFile.close
+    return name
 
-    playAgain = input("Do you wish to play again? YES/NO ")
-    print("\n")
+
 
 playAgain = "YES"
 
@@ -49,6 +53,10 @@ while playAgain == "YES":
 
     os. system('clear')
 
-    CheckGuesses(numberToGuess)
-
+    playerName = CheckGuesses(numberToGuess)
     
+    playAgain = input("Do you wish to play again? YES/NO ")
+    playAgain = playAgain.upper()
+
+
+print("Thank you for playing " + playerName)
