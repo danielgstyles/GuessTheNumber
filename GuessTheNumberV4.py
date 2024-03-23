@@ -1,4 +1,4 @@
-# Guess the Number Game V3
+# Guess the Number Game V4
 # Creator: D Styles
 
 import os
@@ -58,5 +58,5 @@ while playAgain == "YES":
     playAgain = input("Do you wish to play again? YES/NO ")
     playAgain = playAgain.upper()
 
-
+print("\n")
 print("Thank you for playing " + playerName)
