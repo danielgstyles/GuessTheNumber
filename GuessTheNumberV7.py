@@ -2,16 +2,41 @@
 # Creator: D Styles
 
 import os #This is a extra library that adds extra functions to Python. This will be used to clear the terminal screen when needed
+import random
+import time
 
 # def pickOS(): # Function no longer required as the os.name function identifies the OS
 #     selectedOS = int(input("\n\nWhat Operating System are you running this game on? \n * Mac OS = 1 \n * Windows = 2 \n   "))
 #     return selectedOS
+
+
 
 def clearScreen(): #This function will select the correct clear screen command depending of the OS selcted
     if os.name == "posix":
         os. system('clear')
     else:
         os. system('cls')
+
+
+
+def randomNumber():
+    difficulty = int(input("Easy = 1, Medium = 2, Hard = 3, Extra Hard = 4"))
+    if difficulty == 1:
+        ranNum = random.randint(0,10)
+    elif difficulty == 2:
+        ranNum = random.randint(0,50)
+    elif difficulty == 3:
+        ranNum = random.randint(0,100)
+    elif difficulty == 4:
+        ranNum = random.randint(0,250)
+    else:
+        print("\n Incorrect choise. Please try again.")
+        time.sleep(1)
+        randomNumber()
+
+    return ranNum
+
+
 
 
 def CheckGuesses(setNumber): # This function checks the Player 2 guesses against the number set by Player 1
@@ -53,6 +78,8 @@ def CheckGuesses(setNumber): # This function checks the Player 2 guesses against
 
 
 
+# Main Program below.
+
 playAgain = "YES"
 
 
@@ -66,14 +93,23 @@ while playAgain == "YES" or playAgain == "Y": # added or "Y" just in case people
     
     print("Welcome to Guess The Number Game.\n")
 
-    numberToGuess = int(input("Player 1 please set a number between 1 and 100 for PLayer 2 to guess. "))
-
+    print("Would you like to play 1 Player of 2 Player?")
+    print("1 Player = 1 \n2 player = 2\n")
+    numberOfPlayers = int(input())
+    if numberOfPlayers == 2:
+        numberToGuess = int(input("Player 1 please set a number between 1 and 100 for PLayer 2 to guess. "))
+    else:
+        numberToGuess = randomNumber()
+        
     clearScreen()
+    
+    print(numberToGuess) # debugging output statement.
 
     playerName = CheckGuesses(numberToGuess)
     
     playAgain = input("Do you wish to play again? YES/NO ")
     playAgain = playAgain.upper() # Changes the players input to be all uppercase to ensure a consistant data entery format to test against
+
 
 
 print("Thank you for playing " + playerName)
