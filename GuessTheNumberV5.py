@@ -4,11 +4,11 @@
 import os
 
 def pickOS():
-    selectedOS = int(input("\nWhat Operating System are you running this game on? \n * Mac OS = 1 \n * Windows = 2 \n"))
+    selectedOS = int(input("\n\nWhat Operating System are you running this game on? \n * Mac OS = 1 \n * Windows = 2 \n   "))
     return selectedOS
 
 def clearScreen(WhichOS):
-    if WhichOS == "MWindows":
+    if WhichOS == "Windows":
         os. system('cls')
     else:
         os. system('clear')
@@ -56,9 +56,9 @@ playAgain = "YES"
 
 
 while playAgain == "YES":
-    whichOS = pickOS()
+    whichOS = pickOS() #fills whichOS with the returned value from the pickOS function
     
-    clearScreen(whichOS)
+    clearScreen(whichOS) #calls the clearScreen function passing the value held in the whichOS variable
 
     print("Welcome to Guess The Number Game.\n")
 

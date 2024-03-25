@@ -13,9 +13,9 @@ def CheckGuesses(setNumber):
     guesses.append(guess)
 
     print("\n")
-    print(guesses)
+    print(guesses) #debugging output statement to check that the list is being updated with the players guessed values
 
-    while setNumber != guess:
+    while setNumber != guess: #This loop will continue while ever the play guesses incorrectly
     
         if setNumber < guess:
             print("\nIt looks like your guess is too high. Tyr a lower number. \n")
@@ -49,12 +49,12 @@ playAgain = "YES"
 
 while playAgain == "YES" or playAgain == "Y":
 
-    os. system('clear')
+    os. system('clear') #Clears the Terminal screen on a Mac
 
     print("Welcome to Guess The Number Game.\n")
     numberToGuess = int(input("Player 1 please set a number between 1 and 100 for PLayer 2 to guess. "))
 
-    os. system('clear')
+    os. system('clear') #Clears the Terminal screen on a Mac
 
     playerName = CheckGuesses(numberToGuess)
     
