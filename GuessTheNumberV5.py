@@ -3,6 +3,16 @@
 
 import os
 
+def pickOS():
+    selectedOS = int(input("\nWhat Operating System are you running this game on? \n * Mac OS = 1 \n * Windows = 2 \n"))
+    return selectedOS
+
+def clearScreen(WhichOS):
+    if WhichOS == "MWindows":
+        os. system('cls')
+    else:
+        os. system('clear')
+
 def CheckGuesses(setNumber):
     
     guesses = []
@@ -44,14 +54,17 @@ def CheckGuesses(setNumber):
 
 playAgain = "YES"
 
-while playAgain == "YES":
 
-    os. system('clear') #clear the terminal screen on a Mac
+while playAgain == "YES":
+    whichOS = pickOS()
+    
+    clearScreen(whichOS)
 
     print("Welcome to Guess The Number Game.\n")
+
     numberToGuess = int(input("Player 1 please set a number between 1 and 100 for PLayer 2 to guess. "))
 
-    os. system('clear') #clear the terminal screen on a Mac
+    clearScreen(whichOS)
 
     playerName = CheckGuesses(numberToGuess)
     
