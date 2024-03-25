@@ -13,9 +13,9 @@ import time
 
 def clearScreen(): #This function will select the correct clear screen command depending of the OS selcted
     if os.name == "posix":
-        os. system('clear')
+        os. system('clear') #Clear the terminal command for Mac OS
     else:
-        os. system('cls')
+        os. system('cls') #Clear the terminal command for Windows Computer
 
 
 
@@ -80,8 +80,7 @@ def CheckGuesses(setNumber): # This function checks the Player 2 guesses against
 
 # Main Program below.
 
-playAgain = "YES"
-
+playAgain = "YES" # Sets the default value of playAgain so that the While Loop will start. Inside the loop the variable is updated to either continue the game or finish it.
 
 while playAgain == "YES" or playAgain == "Y": # added or "Y" just in case people did not enter the full YES
     #print(os.name) #output statement to identify the value returned by os.name
