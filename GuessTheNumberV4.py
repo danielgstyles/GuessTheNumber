@@ -1,11 +1,11 @@
-# Guess the Number Game V3
+# Guess the Number Game V4
 # Creator: D Styles
 
-import os
+import os  #This is a extra library that adds extra functions to Python. This will be used to clear the terminal screen when needed
 
 def CheckGuesses(setNumber):
     
-    guesses = []
+    guesses = []  #creates a blank list that will be used to keep track of all the guesses made by the player
     
     print("\n")
     guess = int(input("Player Two. Please enter your guess: "))
@@ -15,9 +15,9 @@ def CheckGuesses(setNumber):
     print("\n")
     print(guesses)
 
-    while numberToGuess != guess:
+    while setNumber != guess:
     
-        if numberToGuess < guess:
+        if setNumber < guess:
             print("\nIt looks like your guess is too high. Tyr a lower number. \n")
         else:
             print("\nIt looks like your guess is too low. Tyr a higher number. \n")
@@ -34,29 +34,32 @@ def CheckGuesses(setNumber):
     print("\n")
     name = input("Please enter your name: ")
     print("\n")
+    
+    
+    #The below three lines saves the players name and their guesses to an external file
     saveFile = open("SaveFile.txt", "a")
     saveFile.write(name +  " guessed " + str(guesses) + "\n")
-    #saveFile.write(str(guesses))
     saveFile.close
-    return name
+    
+    return name #Sends the value from the name variable back to the main program.
 
 
 
 playAgain = "YES"
 
-while playAgain == "YES":
+while playAgain == "YES" or playAgain == "Y":
 
-    os. system('clear') #clear the terminal screen on a Mac
+    os. system('clear')
 
     print("Welcome to Guess The Number Game.\n")
     numberToGuess = int(input("Player 1 please set a number between 1 and 100 for PLayer 2 to guess. "))
 
-    os. system('clear') #clear the terminal screen on a Mac
+    os. system('clear')
 
     playerName = CheckGuesses(numberToGuess)
     
     playAgain = input("Do you wish to play again? YES/NO ")
     playAgain = playAgain.upper()
 
-
+print("\n")
 print("Thank you for playing " + playerName)
